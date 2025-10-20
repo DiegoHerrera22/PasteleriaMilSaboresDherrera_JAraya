@@ -1,61 +1,33 @@
+/** Contacto — formulario simple */
 import React, { useState } from 'react';
 
-/**
- * Página de contacto.  Incluye un formulario con campos de nombre,
- * correo electrónico y mensaje.  No se envía a ningún servidor,
- * simplemente muestra una alerta al enviarse.
- */
-function Contacto() {
-  const [nombre, setNombre] = useState('');
-  const [correo, setCorreo] = useState('');
-  const [mensaje, setMensaje] = useState('');
+export default function Contacto(){
+  const [form, setForm] = useState({ nombre:'', correo:'', mensaje:'' });
 
-  const handleSubmit = (e) => {
+  const onChange = e => setForm(f => ({...f, [e.target.name]: e.target.value}));
+  const onSubmit = e => {
     e.preventDefault();
-    // Aquí podrías enviar los datos a un servicio real
-    alert('Gracias por contactarnos, ' + nombre + '!');
-    // Limpiamos el formulario
-    setNombre('');
-    setCorreo('');
-    setMensaje('');
+    alert('Gracias por tu mensaje. (Conectar a backend si corresponde)');
   };
 
   return (
     <main className="contenedor">
       <h2>Contacto</h2>
-      <form onSubmit={handleSubmit} className="formulario-contacto">
-        <div>
-          <label>Nombre</label>
-          <input
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            required
-          />
+      <form className="formulario" onSubmit={onSubmit}>
+        <div className="fila">
+          <label htmlFor="nombre">Nombre</label>
+          <input id="nombre" name="nombre" value={form.nombre} onChange={onChange} placeholder="Tu nombre" />
         </div>
-        <div>
-          <label>Correo electrónico</label>
-          <input
-            type="email"
-            value={correo}
-            onChange={(e) => setCorreo(e.target.value)}
-            required
-          />
+        <div className="fila">
+          <label htmlFor="correo">Correo</label>
+          <input id="correo" name="correo" type="email" value={form.correo} onChange={onChange} placeholder="tu@correo.cl" />
         </div>
-        <div>
-          <label>Mensaje</label>
-          <textarea
-            value={mensaje}
-            onChange={(e) => setMensaje(e.target.value)}
-            required
-          />
+        <div className="fila">
+          <label htmlFor="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" value={form.mensaje} onChange={onChange} placeholder="¿En qué te ayudamos?"></textarea>
         </div>
-        <button type="submit" className="boton-primario">
-          Enviar
-        </button>
+        <button className="boton-primario" type="submit">Enviar</button>
       </form>
     </main>
   );
 }
-
-export default Contacto;

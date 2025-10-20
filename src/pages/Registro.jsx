@@ -1,71 +1,36 @@
+/** Registro — maqueta simple */
 import React, { useState } from 'react';
 
-/**
- * Página de registro de usuario.  Permite a un nuevo usuario
- * registrarse proporcionando nombre, correo y contraseña.  La
- * información no se envía a un servidor en este ejemplo.
- */
-function Registro() {
-  const [nombre, setNombre] = useState('');
-  const [correo, setCorreo] = useState('');
-  const [usuario, setUsuario] = useState('');
-  const [contrasena, setContrasena] = useState('');
-
-  const handleSubmit = (e) => {
+export default function Registro(){
+  const [form, setForm] = useState({ nombre:'', correo:'', usuario:'', clave:'' });
+  const onChange = e => setForm(f => ({...f, [e.target.name]: e.target.value}));
+  const onSubmit = e => {
     e.preventDefault();
-    alert('Registro completado. Bienvenido/a, ' + nombre + '!');
-    setNombre('');
-    setCorreo('');
-    setUsuario('');
-    setContrasena('');
+    alert('Registro de ejemplo — conectar con backend si aplica');
   };
 
   return (
     <main className="contenedor">
-      <h2>Registro</h2>
-      <form onSubmit={handleSubmit} className="formulario-contacto">
-        <div>
-          <label>Nombre</label>
-          <input
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            required
-          />
+      <h2>Crear cuenta</h2>
+      <form className="formulario" onSubmit={onSubmit}>
+        <div className="fila">
+          <label htmlFor="nombre">Nombre</label>
+          <input id="nombre" name="nombre" value={form.nombre} onChange={onChange} />
         </div>
-        <div>
-          <label>Correo electrónico</label>
-          <input
-            type="email"
-            value={correo}
-            onChange={(e) => setCorreo(e.target.value)}
-            required
-          />
+        <div className="fila">
+          <label htmlFor="correo">Correo</label>
+          <input id="correo" name="correo" type="email" value={form.correo} onChange={onChange} />
         </div>
-        <div>
-          <label>Usuario</label>
-          <input
-            type="text"
-            value={usuario}
-            onChange={(e) => setUsuario(e.target.value)}
-            required
-          />
+        <div className="fila">
+          <label htmlFor="usuario">Usuario</label>
+          <input id="usuario" name="usuario" value={form.usuario} onChange={onChange} />
         </div>
-        <div>
-          <label>Contraseña</label>
-          <input
-            type="password"
-            value={contrasena}
-            onChange={(e) => setContrasena(e.target.value)}
-            required
-          />
+        <div className="fila">
+          <label htmlFor="clave">Contraseña</label>
+          <input id="clave" name="clave" type="password" value={form.clave} onChange={onChange} />
         </div>
-        <button type="submit" className="boton-primario">
-          Registrarse
-        </button>
+        <button className="boton-primario" type="submit">Registrarme</button>
       </form>
     </main>
   );
 }
-
-export default Registro;

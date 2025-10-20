@@ -1,24 +1,15 @@
+/** Portada — Pastelería 1000 Sabores */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-/**
- * Página de inicio.  Presenta un mensaje de bienvenida y un enlace
- * destacado hacia la sección de productos.  Puedes personalizar
- * completamente este componente para que refleje la portada de tu
- * tienda, incluyendo imágenes de hero y promociones.
- */
-function Home() {
+export default function Home(){
   return (
     <main className="contenedor">
-      <section style={{ textAlign: 'center', padding: '60px 0' }}>
-        <h1>Bienvenido a MiTienda</h1>
-        <p>Encuentra los mejores productos al mejor precio.</p>
-        <Link to="/productos" className="boton-primario">
-          Ver productos
-        </Link>
+      <section className="hero">
+        <h1>Pastelería 1000 Sabores</h1>
+        <p>Postres artesanales hechos con cariño. Tortas, cupcakes, alfajores y más.</p>
+        <Link className="boton-primario" to="/productos">Ver catálogo</Link>
       </section>
     </main>
   );
 }
-
-export default Home;

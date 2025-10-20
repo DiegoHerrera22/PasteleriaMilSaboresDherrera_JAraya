@@ -1,32 +1,16 @@
+/** Blog Detalle 1 */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-/**
- * Página de detalle para la primera entrada del blog.  Incluye
- * contenido de ejemplo y un enlace de regreso al listado del blog.
- */
-function BlogDetalle1() {
+export default function BlogDetalle1(){
   return (
     <main className="contenedor">
-      <h2>Cómo elegir tu outfit ideal</h2>
+      <h2>Tips para conservar tu torta perfecta</h2>
       <p>
-        Elegir la combinación perfecta de prendas puede parecer
-        complicado, pero con algunos consejos puedes lograr un look
-        increíble sin esfuerzo.  Piensa primero en la ocasión y el
-        nivel de formalidad requerido.  Una vez definido, combina
-        colores neutros con un elemento destacado para dar balance a
-        tu conjunto.
+        Mantén tu torta en un lugar fresco y evita la luz directa del sol.
+        Si tiene crema, refrigérala y retírala 20 minutos antes de servir.
       </p>
-      <p>
-        En nuestra tienda encontrarás una gran variedad de camisetas,
-        pantalones y accesorios que puedes mezclar y combinar para
-        crear tu estilo personal.
-      </p>
-      <Link to="/blog" className="boton-primario">
-        Volver al blog
-      </Link>
+      <Link to="/blog">← Volver al blog</Link>
     </main>
   );
 }
-
-export default BlogDetalle1;

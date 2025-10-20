@@ -1,27 +1,19 @@
+/** Nosotros — texto institucional */
 import React from 'react';
 
-/**
- * Página "Nosotros" donde se puede describir la misión y visión de
- * la tienda.  Esta información es meramente ilustrativa y puedes
- * sustituirla por el contenido real del proyecto original.
- */
-function Nosotros() {
+export default function Nosotros(){
   return (
     <main className="contenedor">
-      <h2>Sobre nosotros</h2>
+      <h2>Sobre Pastelería 1000 Sabores</h2>
       <p>
-        Somos una tienda dedicada a ofrecer productos de calidad a
-        precios accesibles.  Nuestro objetivo es brindar la mejor
-        experiencia de compra a nuestros clientes, con un catálogo
-        diverso y en constante crecimiento.
+        Somos una pastelería artesanal dedicada a crear tortas y postres que
+        deleitan a familias y empresas. Trabajamos con ingredientes frescos y
+        cuidamos cada detalle para que la experiencia sea inolvidable.
       </p>
       <p>
-        Este proyecto ha sido migrado a React 19 con Vite para
-        garantizar un rendimiento óptimo y facilitar su mantenimiento
-        futuro.
+        Hacemos pedidos personalizados para cumpleaños, matrimonios y eventos
+        especiales. Contáctanos para cotizar.
       </p>
     </main>
   );
 }
-
-export default Nosotros;

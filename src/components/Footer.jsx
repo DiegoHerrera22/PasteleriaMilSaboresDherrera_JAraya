@@ -1,15 +1,12 @@
+/** Pie de página — Pastelería 1000 Sabores */
 import React from 'react';
 
-/**
- * Pie de página sencillo.  Puedes ampliarlo con enlaces de redes
- * sociales o información de contacto si es necesario.
- */
-function Footer() {
+export default function Footer(){
   return (
-    <footer style={{ textAlign: 'center', padding: '20px', background: '#333', color: '#fff' }}>
-      <p>&copy; {new Date().getFullYear()} MiTienda - Todos los derechos reservados.</p>
+    <footer>
+      <div className="contenedor">
+        <p>© {new Date().getFullYear()} Pastelería 1000 Sabores — Todos los derechos reservados.</p>
+      </div>
     </footer>
   );
 }
-
-export default Footer;

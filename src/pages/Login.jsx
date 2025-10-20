@@ -1,49 +1,29 @@
+/** Login — maqueta simple (autenticación real va en backend) */
 import React, { useState } from 'react';
 
-/**
- * Página de inicio de sesión.  Incluye un formulario de usuario y
- * contraseña.  La autenticación real se debería implementar en un
- * servidor; aquí simplemente mostramos una alerta.
- */
-function Login() {
+export default function Login(){
   const [usuario, setUsuario] = useState('');
-  const [contrasena, setContrasena] = useState('');
+  const [clave, setClave] = useState('');
 
-  const handleSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault();
-    alert(`Bienvenido, ${usuario}!`);
-    setUsuario('');
-    setContrasena('');
+    alert('Login de ejemplo — implementar lógica real según tu proyecto');
   };
 
   return (
     <main className="contenedor">
       <h2>Iniciar sesión</h2>
-      <form onSubmit={handleSubmit} className="formulario-contacto">
-        <div>
+      <form className="formulario" onSubmit={onSubmit}>
+        <div className="fila">
           <label>Usuario</label>
-          <input
-            type="text"
-            value={usuario}
-            onChange={(e) => setUsuario(e.target.value)}
-            required
-          />
+          <input value={usuario} onChange={e=>setUsuario(e.target.value)} />
         </div>
-        <div>
+        <div className="fila">
           <label>Contraseña</label>
-          <input
-            type="password"
-            value={contrasena}
-            onChange={(e) => setContrasena(e.target.value)}
-            required
-          />
+          <input type="password" value={clave} onChange={e=>setClave(e.target.value)} />
         </div>
-        <button type="submit" className="boton-primario">
-          Entrar
-        </button>
+        <button className="boton-primario" type="submit">Entrar</button>
       </form>
     </main>
   );
 }
-
-export default Login;

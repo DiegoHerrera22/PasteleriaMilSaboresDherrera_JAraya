@@ -1,7 +1,9 @@
 {
-  "name": "proyecto-reac-vite",
+  "name": "pasteleria-1000-sabores",
   "version": "1.0.0",
-  "description": "Migración del proyecto original a React 19 con Vite.",
+  "private": true,
+  "description": "Pastelería 1000 Sabores — React 19 + Vite",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,10 +12,10 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^6.22.2"
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.0",
-    "vite": "^5.0.0"
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.8"
   }
 }

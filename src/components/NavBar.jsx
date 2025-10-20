@@ -1,36 +1,27 @@
+/** Barra de navegación — Pastelería 1000 Sabores */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './NavBar.css';
 
-/**
- * Barra de navegación principal.
- * Incluye enlaces a las diferentes páginas de la aplicación.
- */
-function NavBar() {
+export default function NavBar(){
   return (
     <header className="navbar">
-      <div className="navbar__logo">
-        {/* Nombre o logo de la tienda */}
-        <Link to="/">MiTienda</Link>
+      <div className="navbar__wrap">
+        <div className="navbar__brand">
+          <Link to="/">
+            <img src="/assets/favicon.png" alt="Logo Pastelería 1000 Sabores" />
+            <span>Pastelería 1000 Sabores</span>
+          </Link>
+        </div>
+        <nav className="navbar__links">
+          <Link to="/productos">Productos</Link>
+          <Link to="/carrito">Carrito</Link>
+          <Link to="/contacto">Contacto</Link>
+          <Link to="/nosotros">Nosotros</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/registro">Registro</Link>
+        </nav>
       </div>
-      <nav className="navbar__links">
-        <ul>
-          <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/productos">Productos</Link></li>
-          <li><Link to="/blog">Blog</Link></li>
-          <li><Link to="/nosotros">Nosotros</Link></li>
-          <li><Link to="/contacto">Contacto</Link></li>
-        </ul>
-      </nav>
-      <nav className="navbar__user">
-        <ul>
-          <li><Link to="/login">Iniciar sesión</Link></li>
-          <li><Link to="/registro">Registrarse</Link></li>
-          <li><Link to="/carrito">Carrito</Link></li>
-        </ul>
-      </nav>
     </header>
   );
 }
-
-export default NavBar;
