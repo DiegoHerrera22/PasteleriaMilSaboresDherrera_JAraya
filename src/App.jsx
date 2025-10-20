@@ -5,6 +5,7 @@ import ProductDetail from './pages/ProductDetail'
 import './App.scss'
 import Layout from './Layout/Layout'
 import { ROUTE_PATHS } from './utils/constants'
+import SignIn from './pages/SignIn'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <div className="d-flex flex-column min-vh-100">
       <BrowserRouter>
         <Routes>
+          <Route path={ROUTE_PATHS.SIGN_IN} element = {<SignIn />} />
           {/* El layout se aplica en todos los siguiente componentes*/}
           <Route element= {<Layout />}>
             <Route path={ROUTE_PATHS.HOME} element={<Home />} />
