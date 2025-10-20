@@ -1,9 +1,6 @@
-# React 19 + Vite (Deps fijadas) · Atomic · Router · Tests · Session
-
-## Pasos
+# React 19 + Vite · Minimal (sin testing libs)
 ```bash
 npm install
 npm run dev
-npm test
 ```
-Requiere Node 18.18+ o 20+.
+Node 18.18+ o 20+.
