@@ -11,7 +11,7 @@ export const products = [
     price: 45000,
     stock: 10,
     critical: 3,
-    image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/TC001.jpg',
   },
   {
     id: 'TC002',
@@ -21,7 +21,7 @@ export const products = [
     price: 50000,
     stock: 8,
     critical: 3,
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/TC002.jpg',
   },
   {
     id: 'TT001',
@@ -31,7 +31,7 @@ export const products = [
     price: 40000,
     stock: 12,
     critical: 5,
-    image: 'https://images.unsplash.com/photo-1505253216368-af6f9bbf146d?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/TT001.jpg',
   },
   {
     id: 'TT002',
@@ -41,7 +41,7 @@ export const products = [
     price: 42000,
     stock: 9,
     critical: 3,
-    image: 'https://images.unsplash.com/photo-1504984452050-95f7c98aa8cf?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/TT002.jpg',
   },
   {
     id: 'PI001',
@@ -51,7 +51,7 @@ export const products = [
     price: 5000,
     stock: 25,
     critical: 10,
-    image: 'https://images.unsplash.com/photo-1599785209707-98c26e6b4c31?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/PI001.jpg',
   },
   {
     id: 'PI002',
@@ -61,7 +61,7 @@ export const products = [
     price: 5500,
     stock: 20,
     critical: 5,
-    image: 'https://images.unsplash.com/photo-1605800004556-22d512d0478a?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/PI002.jpg',
   },
   {
     id: 'SA001',
@@ -71,7 +71,7 @@ export const products = [
     price: 5200,
     stock: 18,
     critical: 5,
-    image: 'https://images.unsplash.com/photo-1590099548886-b14a4f4cf956?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/SA001.jpg',
   },
   {
     id: 'SA002',
@@ -81,7 +81,7 @@ export const products = [
     price: 4800,
     stock: 22,
     critical: 5,
-    image: 'https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/SA002.jpg',
   },
   {
     id: 'PT001',
@@ -91,7 +91,7 @@ export const products = [
     price: 1200,
     stock: 100,
     critical: 20,
-    image: 'https://images.unsplash.com/photo-1556910103-1ec19541cfc2?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/PT001.jpg',
   },
   {
     id: 'PT002',
@@ -101,7 +101,7 @@ export const products = [
     price: 1500,
     stock: 80,
     critical: 20,
-    image: 'https://images.unsplash.com/photo-1562967916-eb82221dfb9e?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/PT002.jpg',
   },
   {
     id: 'SG001',
@@ -111,7 +111,7 @@ export const products = [
     price: 6200,
     stock: 15,
     critical: 5,
-    image: 'https://images.unsplash.com/photo-1549575840-6a40f8e3e1b0?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/SG001.jpg',
   },
   {
     id: 'SG002',
@@ -121,7 +121,7 @@ export const products = [
     price: 3500,
     stock: 30,
     critical: 5,
-    image: 'https://images.unsplash.com/photo-1593759608136-b34ca4d31ffa?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/SG002.jpg',
   },
   {
     id: 'VG001',
@@ -131,7 +131,7 @@ export const products = [
     price: 47000,
     stock: 7,
     critical: 2,
-    image: 'https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/VG001.jpg',
   },
   {
     id: 'VG002',
@@ -141,7 +141,7 @@ export const products = [
     price: 4800,
     stock: 24,
     critical: 5,
-    image: 'https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/VG002.jpg',
   },
   {
     id: 'TE001',
@@ -151,7 +151,7 @@ export const products = [
     price: 60000,
     stock: 5,
     critical: 3,
-    image: 'https://images.unsplash.com/photo-1607082348527-4ba122ac62e8?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/TE001.jpg',
   },
   {
     id: 'TE002',
@@ -161,6 +161,6 @@ export const products = [
     price: 95000,
     stock: 3,
     critical: 2,
-    image: 'https://images.unsplash.com/photo-1559027615-915e0aedff25?auto=format&fit=crop&w=600&q=60',
+    image: '/assets/TE002.jpg',
   },
 ];
