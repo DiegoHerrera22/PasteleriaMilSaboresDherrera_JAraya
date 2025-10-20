@@ -1,16 +1,13 @@
-
 import React from 'react'
 import useSession from '../hooks/useSession.js'
-
 export default function Admin(){
   const { session } = useSession()
-
   return (
     <main className="container">
       <div className="grid">
         <div className="card" style={{gridColumn:'span 12'}}>
           <h1>Panel Admin</h1>
-          <p className="muted">Vista separada para administración. (Demo de enrutamiento)</p>
+          <p className="muted">Enrutamiento separado para administración (demo).</p>
         </div>
         <div className="card" style={{gridColumn:'span 6'}}>
           <h2>Resumen de Sesión</h2>
