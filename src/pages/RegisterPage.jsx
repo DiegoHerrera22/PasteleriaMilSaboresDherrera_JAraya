@@ -5,18 +5,25 @@ import Button from '../atoms/Button.jsx';
 import Card from '../atoms/Card.jsx';
 import { regiones } from '../data/regions.js';
 
-/**
- * Página de registro de usuario. Permite ingresar datos personales y selecciona región/comuna.
- */
+// Dominios permitidos para el correo
+const ALLOWED_DOMAINS = ['duoc.cl', 'admin.cl'];
+
 export default function RegisterPage() {
   const [run, setRun] = useState('');
   const [nombres, setNombres] = useState('');
   const [apellidos, setApellidos] = useState('');
   const [correo, setCorreo] = useState('');
+  const [password, setPassword] = useState('');            // ← NUEVO
   const [direccion, setDireccion] = useState('');
   const [region, setRegion] = useState(regiones[0].nombre);
   const [comuna, setComuna] = useState(regiones[0].comunas[0]);
   const [tipoUsuario, setTipoUsuario] = useState('Cliente');
+
+  // helper para validar dominio de correo
+  const emailDomainValid = (email) => {
+    const m = email.toLowerCase().match(/@([^@]+)$/);
+    return m ? ALLOWED_DOMAINS.includes(m[1]) : false;
+  };
 
   // Actualiza la comuna cuando cambia la región seleccionada
   const handleRegionChange = (e) => {
@@ -28,12 +35,24 @@ export default function RegisterPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validaciones nuevas
+    if (!emailDomainValid(correo)) {
+      alert(`El correo debe pertenecer a: ${ALLOWED_DOMAINS.join(', ')}`);
+      return;
+    }
+    if (!password || password.length < 6) {
+      alert('La contraseña debe tener al menos 6 caracteres.');
+      return;
+    }
+
     alert('Registro enviado. Esta demo no almacena los datos.');
     // Reiniciamos el formulario
     setRun('');
     setNombres('');
     setApellidos('');
     setCorreo('');
+    setPassword(''); // ← reset de contraseña
     setDireccion('');
     setRegion(regiones[0].nombre);
     setComuna(regiones[0].comunas[0]);
@@ -52,6 +71,7 @@ export default function RegisterPage() {
             onChange={(e) => setRun(e.target.value)}
             required
           />
+
           <Input
             label="Nombres"
             type="text"
@@ -59,6 +79,7 @@ export default function RegisterPage() {
             onChange={(e) => setNombres(e.target.value)}
             required
           />
+
           <Input
             label="Apellidos"
             type="text"
@@ -66,14 +87,26 @@ export default function RegisterPage() {
             onChange={(e) => setApellidos(e.target.value)}
             required
           />
+
           <Input
-            label="Correo"
+            label="Correo (solo @duoc.cl o @admin.cl)"
             type="email"
             value={correo}
             onChange={(e) => setCorreo(e.target.value)}
             placeholder="usuario@duoc.cl"
             required
           />
+
+          {/* NUEVO: contraseña */}
+          <Input
+            label="Contraseña"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Mínimo 6 caracteres"
+            required
+          />
+
           <Input
             label="Dirección"
             type="text"
@@ -81,12 +114,14 @@ export default function RegisterPage() {
             onChange={(e) => setDireccion(e.target.value)}
             required
           />
+
           <Select
             label="Región"
             options={regiones.map((r) => ({ value: r.nombre, label: r.nombre }))}
             value={region}
             onChange={handleRegionChange}
           />
+
           <Select
             label="Comuna"
             options={regiones
@@ -95,6 +130,7 @@ export default function RegisterPage() {
             value={comuna}
             onChange={(e) => setComuna(e.target.value)}
           />
+
           <Select
             label="Tipo de usuario"
             options={[
@@ -104,6 +140,7 @@ export default function RegisterPage() {
             value={tipoUsuario}
             onChange={(e) => setTipoUsuario(e.target.value)}
           />
+
           <Button type="submit" style={{ width: '100%' }}>
             Registrarme
           </Button>
