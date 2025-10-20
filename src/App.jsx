@@ -7,6 +7,7 @@ import AdminLayout from './layouts/AdminLayout';
 import HomePage from './pages/HomePage.jsx';
 import ProductsPage from './pages/ProductsPage.jsx';
 import CartPage from './pages/CartPage.jsx';
+import BlogDetail from './pages/BlogDetail.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import NosotrosPage from './pages/NosotrosPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
@@ -78,6 +79,7 @@ const decrementQty = (id) => {
           incrementQty={incrementQty}
           decrementQty={decrementQty}/>}/>
         <Route path="blog" element={<BlogPage />} />
+        <Route path="blog/:slug" element={<BlogDetail />} />
         <Route path="nosotros" element={<NosotrosPage />} />
         <Route path="contacto" element={<ContactPage />} />
         <Route path="login" element={<LoginPage />} />
