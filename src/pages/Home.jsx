@@ -28,8 +28,8 @@ function Home() {
 
   return (
     <>
-      <h1>Millones de formas de jugar</h1>
-      <h2>Revisa los juegos que tenemos para ti</h2>
+      <h1>A gustos sabores</h1>
+      <h2>Revisa los productos que tenemos para ti</h2>
       <hr />
       <Container>
         <Row className="align-items-stretch">

@@ -6,6 +6,7 @@ import './App.scss'
 import Layout from './Layout/Layout'
 import { ROUTE_PATHS } from './utils/constants'
 import SignIn from './pages/SignIn'
+import Carrito from './pages/Carrito'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={ROUTE_PATHS.SIGN_IN} element = {<SignIn />} />
+          <Route path={ROUTE_PATHS.CARRITO} element = {<Carrito/>} />
           {/* El layout se aplica en todos los siguiente componentes*/}
           <Route element= {<Layout />}>
             <Route path={ROUTE_PATHS.HOME} element={<Home />} />

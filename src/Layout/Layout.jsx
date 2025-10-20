@@ -19,7 +19,7 @@ function Layout() {
         <Navbar expand="lg" bg="primary" variant="dark">
           <Container>
             <Navbar.Brand href={ROUTE_PATHS.HOME}>
-              Estim
+              Pasteleria 1000 Sabores
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="flex-grow-0">
@@ -63,7 +63,7 @@ function Layout() {
         <Outlet />
       </Container>
       <footer className="bg-primary text-white text-center py-3 mt-auto">
-        © 2025 Estim
+        © Pasteleria 1000 Sabores
       </footer>
     </>
   )

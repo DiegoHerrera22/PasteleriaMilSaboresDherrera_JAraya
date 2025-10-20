@@ -9,6 +9,7 @@ export const ROUTE_PATHS = {
   PRODUCTS: '/productos',
   PRODUCT_DETAIL: '/productos/:id',
   LIBRARY: '/mi-biblioteca',
+  CARRITO:'/carrito',
   PRODUCT_DETAIL_WITH_ID: (id) => `${ROUTE_PATHS.PRODUCTS}/${id}`,
 }
 
