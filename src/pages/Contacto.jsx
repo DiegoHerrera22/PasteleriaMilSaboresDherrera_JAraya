@@ -1,15 +1,61 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useState } from 'react';
 
-// Contact page.  Provides contact information and a simple descriptive
-// paragraph.  Expand this page with a contact form if desired.
-export default function Contacto() {
+/**
+ * Página de contacto.  Incluye un formulario con campos de nombre,
+ * correo electrónico y mensaje.  No se envía a ningún servidor,
+ * simplemente muestra una alerta al enviarse.
+ */
+function Contacto() {
+  const [nombre, setNombre] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [mensaje, setMensaje] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí podrías enviar los datos a un servicio real
+    alert('Gracias por contactarnos, ' + nombre + '!');
+    // Limpiamos el formulario
+    setNombre('');
+    setCorreo('');
+    setMensaje('');
+  };
+
   return (
-    <Container>
-      <h1 className="mb-3">Contacto</h1>
-      <p>¿Tienes alguna duda o quieres hacer un pedido especial?</p>
-      <p>Envíanos un correo a <a href="mailto:info@pasteleriamilsabores.cl">info@pasteleriamilsabores.cl</a> o llámanos al +56 9 1234 5678.</p>
-      <p>Nuestro local está ubicado en Santiago, Chile.</p>
-    </Container>
+    <main className="contenedor">
+      <h2>Contacto</h2>
+      <form onSubmit={handleSubmit} className="formulario-contacto">
+        <div>
+          <label>Nombre</label>
+          <input
+            type="text"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Correo electrónico</label>
+          <input
+            type="email"
+            value={correo}
+            onChange={(e) => setCorreo(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Mensaje</label>
+          <textarea
+            value={mensaje}
+            onChange={(e) => setMensaje(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="boton-primario">
+          Enviar
+        </button>
+      </form>
+    </main>
   );
 }
+
+export default Contacto;

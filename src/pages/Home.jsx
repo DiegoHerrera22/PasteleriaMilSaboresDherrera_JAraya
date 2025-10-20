@@ -1,18 +1,24 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-// Home page component.  Presents a simple welcome message and prompts the user
-// to explore the catalogue.  You can enrich this page with images and
-// promotional content as desired.
-export default function Home() {
+/**
+ * Página de inicio.  Presenta un mensaje de bienvenida y un enlace
+ * destacado hacia la sección de productos.  Puedes personalizar
+ * completamente este componente para que refleje la portada de tu
+ * tienda, incluyendo imágenes de hero y promociones.
+ */
+function Home() {
   return (
-    <Container>
-      <h1 className="mb-3">Bienvenido a Pastelería Mil Sabores</h1>
-      <p>
-        En nuestra pastelería encontrarás tortas, postres y dulces artesanales
-        para cada ocasión. Explora nuestro catálogo y déjate tentar por
-        nuestros sabores.
-      </p>
-    </Container>
+    <main className="contenedor">
+      <section style={{ textAlign: 'center', padding: '60px 0' }}>
+        <h1>Bienvenido a MiTienda</h1>
+        <p>Encuentra los mejores productos al mejor precio.</p>
+        <Link to="/productos" className="boton-primario">
+          Ver productos
+        </Link>
+      </section>
+    </main>
   );
 }
+
+export default Home;

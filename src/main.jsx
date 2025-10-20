@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+// Importamos el componente principal de la aplicación
 import App from './App.jsx';
+// Estilos globales
+import './index.css';
 
-// Import Bootstrap's compiled CSS.  This import must occur before any component
-// imports to ensure styles are available.
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// Mount the React application.  Vite injects the root div defined in index.html.
+// Aquí se monta la aplicación en el elemento con id "root" del HTML.
 ReactDOM.createRoot(document.getElementById('root')).render(
+  // React.StrictMode ayuda a detectar problemas potenciales
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </React.StrictMode>
 );

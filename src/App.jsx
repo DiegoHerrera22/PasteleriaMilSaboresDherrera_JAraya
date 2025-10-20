@@ -1,35 +1,50 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import NavigationBar from './components/NavigationBar.jsx';
-import Home from './pages/Home.jsx';
-import Productos from './pages/Productos.jsx';
-import ProductoDetalle from './pages/ProductoDetalle.jsx';
-import Carrito from './pages/Carrito.jsx';
-import Contacto from './pages/Contacto.jsx';
-import Nosotros from './pages/Nosotros.jsx';
-import Blog from './pages/Blog.jsx';
-import Login from './pages/Login.jsx';
-import Registro from './pages/Registro.jsx';
-import { CartProvider } from './contexts/CartContext.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Importamos el componente de navegación
+import NavBar from './components/NavBar';
+// Importamos las páginas de la aplicación
+import Home from './pages/Home';
+import Productos from './pages/Productos';
+import Producto from './pages/Producto';
+import Carrito from './pages/Carrito';
+import Contacto from './pages/Contacto';
+import Login from './pages/Login';
+import Registro from './pages/Registro';
+import Nosotros from './pages/Nosotros';
+import Blog from './pages/Blog';
+import BlogDetalle1 from './pages/BlogDetalle1';
+import BlogDetalle2 from './pages/BlogDetalle2';
+import Footer from './components/Footer';
 
-// Top-level application component.  It wraps the router in the CartProvider so
-// any component in the tree can consume cart context.  The NavigationBar is
-// rendered outside of the <Routes> so it persists across pages.
-export default function App() {
+/**
+ * Componente raíz de la aplicación.  Aquí se define el router y las
+ * rutas hacia cada página.  También se incluye la barra de navegación
+ * para que aparezca en todas las vistas.
+ */
+function App() {
   return (
-    <CartProvider>
-      <NavigationBar />
+    <Router>
+      {/* La barra de navegación se mantiene visible en todas las páginas */}
+      <NavBar />
+      {/* Definición de rutas.  Cada ruta carga un componente distinto */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/productos" element={<Productos />} />
-        <Route path="/productos/:id" element={<ProductoDetalle />} />
+        {/* Ruta dinámica para mostrar el detalle de un producto en base a su id */}
+        <Route path="/producto/:id" element={<Producto />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/contacto" element={<Contacto />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/blog" element={<Blog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
+        <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog-detalle-1" element={<BlogDetalle1 />} />
+        <Route path="/blog-detalle-2" element={<BlogDetalle2 />} />
       </Routes>
-    </CartProvider>
+      {/* Pie de página, aparece al final de todas las rutas */}
+      <Footer />
+    </Router>
   );
 }
+
+export default App;

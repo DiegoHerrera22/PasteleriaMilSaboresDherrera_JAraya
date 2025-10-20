@@ -1,63 +1,71 @@
 import React, { useState } from 'react';
-import { Container, Form, Button, Alert } from 'react-bootstrap';
 
-// Registration page.  Captures user details and displays a success message.
-export default function Registro() {
-  const [formData, setFormData] = useState({
-    nombre: '',
-    email: '',
-    password: '',
-  });
-  const [message, setMessage] = useState('');
+/**
+ * Página de registro de usuario.  Permite a un nuevo usuario
+ * registrarse proporcionando nombre, correo y contraseña.  La
+ * información no se envía a un servidor en este ejemplo.
+ */
+function Registro() {
+  const [nombre, setNombre] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [usuario, setUsuario] = useState('');
+  const [contrasena, setContrasena] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMessage('Registro simulado completado.');
-    setFormData({ nombre: '', email: '', password: '' });
+    alert('Registro completado. Bienvenido/a, ' + nombre + '!');
+    setNombre('');
+    setCorreo('');
+    setUsuario('');
+    setContrasena('');
   };
+
   return (
-    <Container>
-      <h1 className="mb-3">Registro</h1>
-      {message && <Alert variant="success">{message}</Alert>}
-      <Form onSubmit={handleSubmit} style={{ maxWidth: '450px' }}>
-        <Form.Group className="mb-3" controlId="registroNombre">
-          <Form.Label>Nombre</Form.Label>
-          <Form.Control
+    <main className="contenedor">
+      <h2>Registro</h2>
+      <form onSubmit={handleSubmit} className="formulario-contacto">
+        <div>
+          <label>Nombre</label>
+          <input
             type="text"
-            name="nombre"
-            value={formData.nombre}
-            onChange={handleChange}
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
             required
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="registroEmail">
-          <Form.Label>Correo electrónico</Form.Label>
-          <Form.Control
+        </div>
+        <div>
+          <label>Correo electrónico</label>
+          <input
             type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={correo}
+            onChange={(e) => setCorreo(e.target.value)}
             required
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="registroPassword">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control
+        </div>
+        <div>
+          <label>Usuario</label>
+          <input
+            type="text"
+            value={usuario}
+            onChange={(e) => setUsuario(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Contraseña</label>
+          <input
             type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={contrasena}
+            onChange={(e) => setContrasena(e.target.value)}
             required
           />
-        </Form.Group>
-        <Button variant="primary" type="submit">
+        </div>
+        <button type="submit" className="boton-primario">
           Registrarse
-        </Button>
-      </Form>
-    </Container>
+        </button>
+      </form>
+    </main>
   );
 }
+
+export default Registro;

@@ -1,21 +1,27 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 
-// About page.  Describes the history and mission of the bakery.
-export default function Nosotros() {
+/**
+ * Página "Nosotros" donde se puede describir la misión y visión de
+ * la tienda.  Esta información es meramente ilustrativa y puedes
+ * sustituirla por el contenido real del proyecto original.
+ */
+function Nosotros() {
   return (
-    <Container>
-      <h1 className="mb-3">Nosotros</h1>
+    <main className="contenedor">
+      <h2>Sobre nosotros</h2>
       <p>
-        Somos una pastelería familiar fundada en 2023 con la misión de crear
-        postres irresistibles a partir de ingredientes frescos y de la más alta
-        calidad. Nuestro compromiso es endulzar tus momentos más especiales.
+        Somos una tienda dedicada a ofrecer productos de calidad a
+        precios accesibles.  Nuestro objetivo es brindar la mejor
+        experiencia de compra a nuestros clientes, con un catálogo
+        diverso y en constante crecimiento.
       </p>
       <p>
-        Con dedicación y pasión, combinamos recetas tradicionales con toques
-        innovadores para ofrecerte sabores únicos. ¡Gracias por confiar en
-        nosotros!
+        Este proyecto ha sido migrado a React 19 con Vite para
+        garantizar un rendimiento óptimo y facilitar su mantenimiento
+        futuro.
       </p>
-    </Container>
+    </main>
   );
 }
+
+export default Nosotros;

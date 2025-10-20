@@ -1,49 +1,49 @@
 import React, { useState } from 'react';
-import { Container, Form, Button, Alert } from 'react-bootstrap';
 
-// Simple login page.  This example does not perform real authentication but
-// demonstrates controlled form inputs.  You could integrate an API later.
-export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+/**
+ * Página de inicio de sesión.  Incluye un formulario de usuario y
+ * contraseña.  La autenticación real se debería implementar en un
+ * servidor; aquí simplemente mostramos una alerta.
+ */
+function Login() {
+  const [usuario, setUsuario] = useState('');
+  const [contrasena, setContrasena] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app you would validate credentials with a server.  Here we
-    // simply display a confirmation message and reset the form.
-    setMessage('Inicio de sesión simulado.');
-    setEmail('');
-    setPassword('');
+    alert(`Bienvenido, ${usuario}!`);
+    setUsuario('');
+    setContrasena('');
   };
 
   return (
-    <Container>
-      <h1 className="mb-3">Iniciar Sesión</h1>
-      {message && <Alert variant="success">{message}</Alert>}
-      <Form onSubmit={handleSubmit} style={{ maxWidth: '400px' }}>
-        <Form.Group className="mb-3" controlId="loginEmail">
-          <Form.Label>Correo electrónico</Form.Label>
-          <Form.Control
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+    <main className="contenedor">
+      <h2>Iniciar sesión</h2>
+      <form onSubmit={handleSubmit} className="formulario-contacto">
+        <div>
+          <label>Usuario</label>
+          <input
+            type="text"
+            value={usuario}
+            onChange={(e) => setUsuario(e.target.value)}
             required
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="loginPassword">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control
+        </div>
+        <div>
+          <label>Contraseña</label>
+          <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={contrasena}
+            onChange={(e) => setContrasena(e.target.value)}
             required
           />
-        </Form.Group>
-        <Button variant="primary" type="submit">
+        </div>
+        <button type="submit" className="boton-primario">
           Entrar
-        </Button>
-      </Form>
-    </Container>
+        </button>
+      </form>
+    </main>
   );
 }
+
+export default Login;
