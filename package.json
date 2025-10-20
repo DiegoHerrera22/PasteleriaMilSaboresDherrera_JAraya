@@ -1,7 +1,8 @@
 {
-  "name": "react19-vite-minimal",
-  "private": true,
+  "name": "pasteleria-1000-sabores",
   "version": "1.0.0",
+  "private": true,
+  "description": "Pastelería 1000 Sabores — React 19 + Vite",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,15 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-router-dom": "6.27.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "4.3.1",
-    "vite": "5.4.10"
-  },
-  "engines": {
-    "node": ">=18.18.0"
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.8"
   }
 }
