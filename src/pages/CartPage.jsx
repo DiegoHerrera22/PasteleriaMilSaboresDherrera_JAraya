@@ -1,57 +1,127 @@
-import React from 'react';
-import Button from '../atoms/Button.jsx';
+import React, { useMemo } from 'react';
 
-/**
- * Página del carrito de compras. Muestra los productos añadidos y el total.
- */
-export default function CartPage({ cartItems, removeFromCart }) {
-  const total = cartItems.reduce((acc, item) => acc + item.price * item.qty, 0);
+// Formateador CLP (sin decimales; ajusta si tus precios vienen con centavos)
+const clp = new Intl.NumberFormat('es-CL', {
+  style: 'currency',
+  currency: 'CLP',
+  maximumFractionDigits: 0,
+});
+
+export default function CartPage({
+  cartItems = [],
+  removeFromCart,
+  incrementQty,
+  decrementQty,
+}) {
+  // Normaliza nombre de campo de precio (por si tu dataset usa "precio" en vez de "price")
+  const lineItems = cartItems.map((it) => ({
+    ...it,
+    price:
+      typeof it.price === 'number'
+        ? it.price
+        : typeof it.precio === 'number'
+        ? it.precio
+        : Number(it.price ?? it.precio ?? 0),
+  }));
+
+  const subtotal = useMemo(
+    () => lineItems.reduce((acc, it) => acc + it.price * it.qty, 0),
+    [lineItems]
+  );
+
+  if (!lineItems.length) return <p>Tu carrito está vacío.</p>;
 
   return (
-    <div>
-      <h2>Carrito</h2>
-      {cartItems.length === 0 ? (
-        <div className="card" style={{ maxWidth: '500px' }}>
-          <p>Tu carrito está vacío.</p>
-          <p>Total:</p>
-          <strong>${total.toLocaleString()}</strong>
-        </div>
-      ) : (
-        <>
-          <table>
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Subtotal</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems.map((item) => (
+    <section>
+      <h1>Carrito</h1>
+
+      <div className="table-responsive">
+        <table className="table cart-table">
+          <thead>
+            <tr>
+              <th style={{ textAlign: 'left' }}>Producto</th>
+              <th>Precio</th>
+              <th style={{ width: 160 }}>Cantidad</th>
+              <th>Total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {lineItems.map((item) => {
+              const lineTotal = item.price * item.qty;
+              return (
                 <tr key={item.id}>
-                  <td>{item.name}</td>
-                  <td>{item.qty}</td>
-                  <td>${item.price.toLocaleString()}</td>
-                  <td>${(item.price * item.qty).toLocaleString()}</td>
+                  <td>
+                    <div className="cart-item">
+                      {item.image && (
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="cart-thumb"
+                        />
+                      )}
+                      <div>
+                        <div className="cart-name">{item.name}</div>
+                        {item.category && (
+                          <div className="cart-cat">{item.category}</div>
+                        )}
+                      </div>
+                    </div>
+                  </td>
+                  <td>{clp.format(item.price)}</td>
+                  <td>
+                    <div className="qty-control">
+                      <button
+                        type="button"
+                        className="btn btn-ghost"
+                        onClick={() => decrementQty(item.id)}
+                        aria-label={`Disminuir ${item.name}`}
+                        disabled={item.qty <= 1}
+                      >
+                        −
+                      </button>
+
+                      <span className="qty">{item.qty}</span>
+
+                      <button
+                        type="button"
+                        className="btn btn-ghost"
+                        onClick={() => incrementQty(item.id)}
+                        aria-label={`Aumentar ${item.name}`}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </td>
+                  <td className="line-total">{clp.format(lineTotal)}</td>
                   <td>
                     <button
-                      className="btn btn-primary"
+                      type="button"
+                      className="btn btn-danger"
                       onClick={() => removeFromCart(item.id)}
                     >
                       Eliminar
                     </button>
                   </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <div style={{ marginTop: '1rem', textAlign: 'right' }}>
-            <strong>Total: ${total.toLocaleString()}</strong>
-          </div>
-        </>
-      )}
-    </div>
+              );
+            })}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td
+                colSpan={3}
+                style={{ textAlign: 'right', fontWeight: 600 }}
+              >
+                Subtotal
+              </td>
+              <td colSpan={2} style={{ fontWeight: 700 }}>
+                {clp.format(subtotal)}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
   );
 }

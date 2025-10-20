@@ -295,3 +295,130 @@ input[type='number'] {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
+
+
+/*aqui voy a poner todo el tema del css de algunos de los componentes para que sean responsivos */
+
+/* Layout básico (respeta tu .container original de arriba) */
+img { max-width: 100%; height: auto; }
+
+/* NAVBAR: mantiene el fondo rosa de marca y mejora mobile */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  border-bottom: 2px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar .logo { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; font-size: 1.2rem; }
+.navbar .logo img { width: 24px; height: 24px; display: block; }
+
+.navbar nav { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; font-weight: 500; }
+.navbar a { color: var(--color-white); padding: .5rem .75rem; border-radius: .5rem; transition: background-color .15s; }
+.navbar a.active,
+.navbar a:hover { background-color: var(--color-pink-hover); }
+
+/* Badge carrito (ya usas esta clase en blanco con texto rosa) */
+.badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.25rem; height: 1.25rem; padding: 0 .25rem;
+  background-color: var(--color-white); color: var(--color-pink);
+  border-radius: 50%; font-size: .75rem; font-weight: 700;
+}
+
+/* Botón hamburguesa para mobile */
+.nav-toggle {
+  display: none;
+  align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: .5rem;
+  background: var(--color-white);
+  color: var(--color-brown);
+  font-size: 1rem;
+}
+
+/* Breakpoints */
+@media (max-width: 768px) {
+  .navbar { align-items: center; }
+  .navbar nav {
+    position: absolute; top: calc(56px + 2px); left: 0; right: 0;
+    display: none;
+    flex-direction: column; gap: 0;
+    background: var(--color-pink); /* mantiene color de marca en el dropdown */
+    border-top: 2px solid var(--color-border);
+    padding: .5rem 0;
+  }
+  .navbar nav a {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+  .navbar nav a:last-child { border-bottom: 0; }
+
+  .nav-toggle { display: inline-flex; }
+  .navbar nav.open { display: flex; }
+}
+
+/* ================== BOTONES (unificados, con contraste correcto) ================== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .5rem .8rem; border-radius: .5rem; border: 1px solid var(--color-border);
+  background: var(--color-white); color: #333; cursor: pointer;
+  font-weight: 600;
+  transition: background-color .15s ease, filter .15s ease, transform .05s ease;
+}
+.btn:hover { background: #f7f7f7; }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--color-pink);
+  border-color: var(--color-pink);
+  color: var(--color-white);
+}
+.btn-primary:hover {
+  background: var(--color-pink-hover);
+  border-color: var(--color-pink-hover);
+  color: var(--color-white); /* evita “texto invisible” en hover */
+}
+
+.btn-danger {
+  background: #e53935; border-color: #e53935; color: #fff;
+}
+.btn-danger:hover {
+  background: #c62828; border-color: #c62828; color: #fff;
+}
+
+.btn-ghost {
+  background: transparent; border-color: var(--color-border); color: #333;
+}
+.btn-ghost:hover { background: #f5f5f5; }
+
+/* ================== TABLA DEL CARRITO ================== */
+.table-responsive { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: .75rem; border-bottom: 1px solid var(--color-border); text-align: center; }
+.table thead th { font-weight: 600; color: var(--color-brown); background: var(--color-bg); }
+.cart-item { display: flex; align-items: center; gap: .75rem; text-align: left; }
+.cart-thumb {
+  width: 56px; height: 56px; object-fit: cover; border-radius: .5rem; border: 1px solid var(--color-border);
+  background: var(--color-white);
+}
+.cart-name { font-weight: 600; color: var(--color-brown); }
+.cart-cat { font-size: .85rem; color: #7a6a61; }
+.qty-control { display: inline-flex; align-items: center; gap: .5rem; }
+.qty { display: inline-block; min-width: 2ch; text-align: center; }
+.line-total { font-weight: 700; color: var(--color-brown); }
+
+@media (max-width: 640px) {
+  .cart-thumb { width: 44px; height: 44px; }
+  .qty-control .btn { padding: .35rem .6rem; }
+}
