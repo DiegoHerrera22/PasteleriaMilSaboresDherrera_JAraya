@@ -7,7 +7,7 @@ export const posts = [
     description:
       'Porciones, sabores y decoración: cómo acertar según tu tipo de evento y clima.',
     image:
-      'https://images.unsplash.com/photo-1514516870926-2c97f8598365?auto=format&fit=crop&w=600&q=60',
+      '/assets/escoger.jpg',
   },
   {
     id: 2,
@@ -15,6 +15,6 @@ export const posts = [
     description:
       'Opciones inclusivas con gran sabor: rellenos, coberturas y formatos individuales.',
     image:
-      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=60',
+      '/assets/alternativas.jpg',
   },
 ];

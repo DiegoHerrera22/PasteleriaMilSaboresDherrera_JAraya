@@ -11,7 +11,7 @@ export default function NosotrosPage() {
       <Card>
         {/* Imagen descriptiva del taller. Puede ser reemplazada por una foto real. */}
         <img
-          src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=60"
+          src="/assets/nosotros.jpg"
           alt="Nuestro taller"
           style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem' }}
         />
